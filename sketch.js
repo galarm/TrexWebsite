@@ -74,10 +74,10 @@ function draw(){
 
   if(gamestate== JOGAR){
     pontuacao= pontuacao + Math.round(frameRate()/60)
-    if(keyDown("space")&& trex.y >= height-50){
+    if((touches.length> 0 || keyDown("space"))&& trex.y >= height-50){
       trex.velocityY = -10;
       jump.play();
-      
+  
     }
     
    trex.velocityY = trex.velocityY + 0.5;
@@ -109,7 +109,7 @@ function draw(){
     gameover.visible= true
     restart.visible= true
 
-    if(mousePressedOver(restart)){
+    if(touches.length>0 || mousePressedOver(restart)){
 
       reset()
     }
